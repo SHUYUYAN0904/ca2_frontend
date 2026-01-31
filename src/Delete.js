@@ -27,5 +27,9 @@ export default function Delete() {
     deleteActivity();
   }, [id, navigate]);
 
-  return <div>Deleting...</div>;
+  return (
+    <div className="container">
+      <div className="empty-state">Deleting...</div>
+    </div>
+  );
 }

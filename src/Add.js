@@ -41,16 +41,55 @@ export default function Add() {
   }
 
   return (
-    <div>
-      <h2>Add activity</h2>
+    <div className="container">
+      <h1>Add Activity</h1>
 
       <form onSubmit={handleSubmit}>
-        <input type="text" placeholder="Activity Name" value={activity_name} onChange={(e) => setName(e.target.value)} />
-        <input type="text" placeholder="Activity Type" value={activity_type} onChange={(e) => setType(e.target.value)} />
-        <input type="text" placeholder="Description" value={activity_description} onChange={(e) => setDescription(e.target.value)} />
-        <input type="date" value={activity_date} onChange={(e) => setDate(e.target.value)} />
+        <div className="form-group">
+          <label>Activity Name:</label>
+          <input 
+            type="text" 
+            placeholder="Enter activity name" 
+            value={activity_name} 
+            onChange={(e) => setName(e.target.value)} 
+          />
+        </div>
 
-        <button type="submit">Add</button>
+        <div className="form-group">
+          <label>Activity Type:</label>
+          <input 
+            type="text" 
+            placeholder="Enter activity type" 
+            value={activity_type} 
+            onChange={(e) => setType(e.target.value)} 
+          />
+        </div>
+
+        <div className="form-group">
+          <label>Description:</label>
+          <input 
+            type="text" 
+            placeholder="Enter description" 
+            value={activity_description} 
+            onChange={(e) => setDescription(e.target.value)} 
+          />
+        </div>
+
+        <div className="form-group">
+          <label>Date:</label>
+          <input 
+            type="date" 
+            value={activity_date} 
+            onChange={(e) => setDate(e.target.value)} 
+          />
+        </div>
+
+        <div className="button-group">
+          <button type="submit" className="btn-primary">Add Activity</button>
+          <button type="button" className="btn-secondary" onClick={() => navigate("/allactivities")}>
+            Cancel
+          </button>
+        </div>
       </form>
     </div>
   );
