@@ -38,6 +38,10 @@ export default function View() {
               <Link to={`/edit/${a.id}`} state={{ activity: a }} className="edit-link">
                 Edit
               </Link>
+              {" | "}
+              <Link to={`/delete/${a.id}`} className="edit-link">
+                Delete
+              </Link>
             </li>
           ))}
         </ul>
