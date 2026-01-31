@@ -5,7 +5,6 @@ const BASE_URL = "https://c219-ca2-webservice-5o2l.onrender.com";
 
 export default function View() {
   const [activities, setActivities] = useState([]);
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetch(`${BASE_URL}/allactivities`)
@@ -17,24 +16,26 @@ export default function View() {
         setActivities(myJson);
       })
       .catch((err) => {
-        console.log(err);          
+        console.log(err);
       });
   }, []);
 
-
   return (
-    <div>
+    <div className="container">
       <h1>Activities</h1>
 
       {activities.length === 0 ? (
-        <p>No activities found.</p>
+        <p className="empty-state">No activities found.</p>
       ) : (
-        <ul>
+        <ul className="activity-list">
           {activities.map((a) => (
-            <li key={a.id}>
-              <b>{a.activity_name}</b> – {a.activity_type}
-              <br />
-              <Link to={`/edit/${a.id}`} state={{ activity: a }}>
+            <li key={a.id} className="activity-item">
+              <div className="activity-name">{a.activity_name}</div>
+              <div className="activity-type">{a.activity_type}</div>
+              <div className="activity-date">
+                Date: {a.activity_date.split('T')[0]}
+              </div>
+              <Link to={`/edit/${a.id}`} state={{ activity: a }} className="edit-link">
                 Edit
               </Link>
             </li>

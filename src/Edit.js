@@ -20,7 +20,7 @@ export default function Edit() {
     passedActivity ? passedActivity.activity_description : ""
   );
   const [activity_date, setActivityDate] = useState(
-    passedActivity ? passedActivity.activity_date : ""
+    passedActivity ? passedActivity.activity_date.split('T')[0] : ""
   );
 
   useEffect(() => {
@@ -36,7 +36,7 @@ export default function Edit() {
           setActivityName(found.activity_name);
           setActivityType(found.activity_type);
           setActivityDescription(found.activity_description);
-          setActivityDate(found.activity_date);
+          setActivityDate(found.activity_date.split('T')[0]);
         }
       })
       .catch((err) => {
@@ -69,28 +69,47 @@ export default function Edit() {
   };
 
   return (
-    <div>
+    <div className="container">
       <h1>Edit Activity</h1>
 
       <div>
-        <p>Activity Name:</p>
-        <input value={activity_name} onChange={(e) => setActivityName(e.target.value)} />
+        <div className="form-group">
+          <label>Activity Name:</label>
+          <input 
+            value={activity_name} 
+            onChange={(e) => setActivityName(e.target.value)} 
+          />
+        </div>
 
-        <p>Activity Type:</p>
-        <input value={activity_type} onChange={(e) => setActivityType(e.target.value)} />
+        <div className="form-group">
+          <label>Activity Type:</label>
+          <input 
+            value={activity_type} 
+            onChange={(e) => setActivityType(e.target.value)} 
+          />
+        </div>
 
-        <p>Description:</p>
-        <input
-          value={activity_description}
-          onChange={(e) => setActivityDescription(e.target.value)}
-        />
+        <div className="form-group">
+          <label>Description:</label>
+          <input
+            value={activity_description}
+            onChange={(e) => setActivityDescription(e.target.value)}
+          />
+        </div>
 
-        <p>Date:</p>
-        <input value={activity_date} onChange={(e) => setActivityDate(e.target.value)} />
+        <div className="form-group">
+          <label>Date:</label>
+          <input 
+            type="date"
+            value={activity_date} 
+            onChange={(e) => setActivityDate(e.target.value)} 
+          />
+        </div>
 
-        <br />
-        <button onClick={updateActivity}>Save</button>
-        <button onClick={() => navigate("/")}>Cancel</button>
+        <div className="button-group">
+          <button className="btn-primary" onClick={updateActivity}>Save</button>
+          <button className="btn-secondary" onClick={() => navigate("/")}>Cancel</button>
+        </div>
       </div>
     </div>
   );

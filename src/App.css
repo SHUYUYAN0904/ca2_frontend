@@ -1,38 +1,112 @@
-.App {
-  text-align: center;
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 20px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Navigation bar */
+nav {
+  background-color: white;
+  padding: 15px;
+  margin-bottom: 20px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+nav a {
+  color: blue;
+  text-decoration: none;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+/* Container for pages */
+.container {
+  background-color: white;
+  padding: 30px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Headings */
+h1 {
+  color: #333;
+}
+
+/* Activity list */
+.activity-list {
+  list-style: none;
+  padding: 0;
+}
+
+.activity-item {
+  background-color: #f9f9f9;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-left: 3px solid blue;
+}
+
+.activity-name {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.activity-type {
+  color: #666;
+  margin-top: 5px;
+}
+
+.activity-date {
+  color: #888;
+  margin-top: 5px;
+}
+
+.edit-link {
+  color: blue;
+  text-decoration: none;
+  margin-top: 10px;
+  display: inline-block;
+}
+
+/* Form styling */
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+}
+
+/* Buttons */
+.button-group {
+  margin-top: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  margin-right: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background-color: blue;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.btn-secondary {
+  background-color: gray;
+  color: white;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Empty state message */
+.empty-state {
+  text-align: center;
+  color: #999;
+  padding: 20px;
 }
